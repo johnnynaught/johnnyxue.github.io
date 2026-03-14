@@ -556,6 +556,76 @@ body.dark-mode .moon-icon { display: block; }
     flex-wrap: wrap;
 }
 
+/* Hero Subtitle (Typing Animation) */
+.hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    color: var(--color-accent);
+    text-align: center;
+    min-height: 1.5em;
+    margin-bottom: var(--space-lg);
+}
+
+.typing-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.1em;
+    background: var(--color-accent);
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    animation: blink 1s step-end infinite;
+}
+
+.typing-cursor.typing {
+    animation: none;
+    opacity: 1;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Hero Entrance Animations */
+.hero-animate-target {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.hero-animate-target.hero-animate-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.hero-name.hero-animate-target {
+    transition-delay: 0ms;
+}
+
+#typing-subtitle.hero-animate-target {
+    transition-delay: 300ms;
+}
+
+.hero-about.hero-animate-target {
+    transition-delay: 600ms;
+}
+
+.hero-cta.hero-animate-target {
+    transition-delay: 900ms;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .hero-animate-target {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .typing-cursor {
+        animation: none;
+    }
+}
+
 /* Hero Tags */
 .hero-tags {
     display: flex;
@@ -1562,6 +1632,11 @@ body.dark-mode .moon-icon { display: block; }
 
     .hero-name {
         font-size: 1.75rem;
+    }
+
+    .hero-subtitle {
+        min-height: 2.5em;
+        overflow-wrap: break-word;
     }
 
     .section-title {
