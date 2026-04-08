@@ -10,12 +10,12 @@
     --color-bg: #ffffff;
     --color-bg-alt: #f4f7fa;
     --color-surface: #ffffff;
-    --color-text: #1a2332;
-    --color-text-secondary: #5a6a7a;
+    --color-text: #1a2332; /* Darker text for contrast */
+    --color-text-secondary: #5a6a7a; /* Slightly darker secondary text */
     --color-text-muted: #8a95a3;
     --color-border: #e2e8f0;
-    --color-shadow: rgba(0, 0, 0, 0.08);
-    --color-shadow-hover: rgba(0, 0, 0, 0.15);
+    --color-shadow: rgba(0, 0, 0, 0.12); /* More pronounced shadow */
+    --color-shadow-hover: rgba(0, 0, 0, 0.25); /* More pronounced hover shadow */
 
     /* Typography */
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -58,9 +58,9 @@ body.dark-mode {
     --color-text: #e8edf4;
     --color-text-secondary: #9aacbf;
     --color-text-muted: #6b7d90;
-    --color-border: #2a3a50;
-    --color-shadow: rgba(0, 0, 0, 0.3);
-    --color-shadow-hover: rgba(0, 0, 0, 0.5);
+    --color-border: #2a3a50; /* Slightly darker border */
+    --color-shadow: rgba(0, 0, 0, 0.4); /* More pronounced shadow for dark mode */
+    --color-shadow-hover: rgba(0, 0, 0, 0.6); /* More pronounced hover shadow for dark mode */
 }
 
 /* ============================================
@@ -162,25 +162,29 @@ ul {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover));
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover)); /* Keep gradient */
     color: #022643;
     border-color: var(--color-accent);
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(247, 171, 28, 0.4);
+    transform: translateY(-3px); /* Slightly more lift */
+    /* More pronounced shadow with a subtle glow */
+    box-shadow: 0 8px 25px rgba(247, 171, 28, 0.6), 0 0 15px var(--color-accent);
 }
 
 .btn-outline {
     background: transparent;
     color: #fff;
+    /* Slightly more opaque border for better visibility */
     border-color: rgba(255, 255, 255, 0.6);
 }
 
 .btn-outline:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: #fff;
+    transform: translateY(-3px); /* More lift */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
     transform: translateY(-2px);
 }
 
@@ -231,11 +235,28 @@ ul {
     font-weight: 700;
     color: #fff;
     letter-spacing: -1px;
+    transition: color var(--transition-base), transform var(--transition-fast); /* Add transform to transition */
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -1px;
     transition: color var(--transition-base);
+}
+
+.nav-logo:hover {
+    transform: scale(1.05); /* Subtle scale on hover */
+    color: var(--color-accent); /* Change color on hover */
 }
 
 .navbar.scrolled .nav-logo {
     color: var(--color-primary);
+}
+
+.navbar.scrolled .nav-logo:hover {
+    color: var(--color-accent); /* Keep accent color on hover when scrolled */
 }
 
 .nav-menu {
@@ -472,11 +493,13 @@ body.dark-mode .moon-icon { display: block; }
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: var(--radius-md);
     transition: all var(--transition-base);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle initial shadow */
 }
 
 .hero-detail-card:hover {
-    background: rgba(255, 255, 255, 0.14);
-    transform: translateX(4px);
+    background: rgba(255, 255, 255, 0.18); /* Slightly more opaque background */
+    transform: translateY(-4px); /* Lift instead of slide */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
 }
 
 .hero-detail-icon {
@@ -832,13 +855,14 @@ body.dark-mode .moon-icon { display: block; }
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     padding: var(--space-xl);
-    text-align: center;
-    transition: all var(--transition-base);
+    text-align: center; /* Center content */
+    transition: all var(--transition-base); /* Smooth transitions for all properties */
+    box-shadow: 0 5px 15px var(--color-shadow); /* Initial subtle shadow */
 }
 
 .skill-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px var(--color-shadow-hover);
+    transform: translateY(-8px); /* More lift */
+    box-shadow: 0 15px 40px var(--color-shadow-hover); /* Larger shadow */
 }
 
 .skill-icon {
@@ -896,12 +920,14 @@ body.dark-mode .moon-icon { display: block; }
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    transition: all var(--transition-base);
+    transition: all var(--transition-base); /* Smooth transitions */
+    box-shadow: 0 8px 20px var(--color-shadow); /* Initial subtle shadow */
 }
 
 .project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px var(--color-shadow-hover);
+    transform: translateY(-10px) rotateX(2deg) rotateY(2deg); /* More lift, subtle 3D */
+    box-shadow: 0 25px 50px var(--color-shadow-hover); /* Larger, more diffused shadow */
+    perspective: 1000px; /* Enable 3D transforms */
 }
 
 .project-image {
@@ -1028,12 +1054,14 @@ body.dark-mode .moon-icon { display: block; }
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     padding: var(--space-2xl) var(--space-xl);
-    text-align: center;
-    transition: all var(--transition-base);
+    text-align: center; /* Center content */
+    transition: all var(--transition-base); /* Smooth transitions */
     position: relative;
     overflow: hidden;
+    box-shadow: 0 8px 20px var(--color-shadow); /* Initial subtle shadow */
 }
 
+/* Accent border on top */
 .edu-card::before {
     content: '';
     position: absolute;
@@ -1046,8 +1074,9 @@ body.dark-mode .moon-icon { display: block; }
 }
 
 .edu-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px var(--color-shadow-hover);
+    transform: translateY(-10px) rotateX(2deg) rotateY(2deg); /* More lift, subtle 3D */
+    box-shadow: 0 25px 50px var(--color-shadow-hover); /* Larger, more diffused shadow */
+    perspective: 1000px; /* Enable 3D transforms */
 }
 
 .edu-logo {
@@ -1178,11 +1207,13 @@ body.dark-mode .moon-icon { display: block; }
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     padding: var(--space-xl);
-    transition: all var(--transition-base);
+    transition: all var(--transition-base); /* Smooth transitions */
+    box-shadow: 0 5px 15px var(--color-shadow); /* Initial subtle shadow */
 }
 
 .timeline-content:hover {
-    box-shadow: 0 8px 25px var(--color-shadow);
+    transform: translateY(-3px); /* Add a slight lift */
+    box-shadow: 0 10px 30px var(--color-shadow-hover); /* More pronounced shadow */
 }
 
 .timeline-header {
@@ -1339,12 +1370,13 @@ body.dark-mode .moon-icon { display: block; }
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     font-size: 0.95rem;
-    color: var(--color-text);
-    transition: all var(--transition-base);
+    color: var(--color-text); /* Text color */
+    transition: all var(--transition-base); /* Smooth transitions */
+    box-shadow: 0 4px 10px var(--color-shadow); /* Initial subtle shadow */
 }
 
 .contact-method:hover {
-    transform: translateX(5px);
+    transform: translateY(-3px); /* Lift instead of slide */
     border-color: var(--color-accent);
     box-shadow: 0 4px 15px var(--color-shadow);
 }
@@ -1373,14 +1405,15 @@ body.dark-mode .moon-icon { display: block; }
     width: 56px;
     height: 56px;
     background: var(--color-surface);
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-border); /* Border color */
     border-radius: var(--radius-md);
-    transition: all var(--transition-base);
+    transition: all var(--transition-base); /* Smooth transitions */
+    box-shadow: 0 5px 15px var(--color-shadow); /* Initial subtle shadow */
 }
 
 .social-link:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px var(--color-shadow);
+    transform: translateY(-5px) scale(1.05); /* More lift and subtle scale */
+    box-shadow: 0 10px 25px var(--color-shadow-hover); /* More pronounced shadow */
     border-color: var(--color-accent);
 }
 
